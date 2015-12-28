@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="copyright" content="Copyright (c) 2015 mabdelazim@gmail.com . This page is made available under license. For full details see the LEGAL notice in the documentation book that contains this page." />
+<link rel="stylesheet" type="text/css" href="../org.eclipse.rse.doc.user/book.css" />
+<title>Debugging Remote C/C++ Applications Directly</title>
+</head>
+
+<body id="dremotecdt"><a name="dremotecdt"><!-- --></a>
+<h1 class="topictitle1">Debugging Remote C/C++ Applications Directly</h1>
+<div class="p">
+<p>The Direct RSE Remote CDT Plugin builds on top of CDT and integrates with RSE to introduce
+a "Remote Debugging C/C++ Application Directly" launch configuration. This launch configuration relies 
+on the shell services of the RSE connections.</p>
+
+<p>The "Remote Debugging C/C++ Application Directly" launch configuration enables the user to select from a list of RSE connections which have the shell service available. The gdb is invoked in the remote host using the shell service.
+The debugging is running exactly like local debug but all gdb debug command are sent to the remote gdb instead of calling the local gdb
+</p>
+
+<p>
+The local platform and remote platform can be different. For example local platform can be Windows and remote platform can be Linux.
+The exe file must in remote platform format and locates in the remote platform. User enters its paths in the settings	
+</p>
+
+<p> 
+If you have two copies of the source files. One in local host which is included in Eclipse project and other in the remote host which you built the exe with, then you must put in "Remote workspace directly" the path of the source files in the remote host. The is necessarily to make the break points work fine
+</p>
+</div>
+
+<h2>System Prerequisites</h2>
+<div class="p"><b>Local Host</b>
+<ul>
+  <li>It is necessary to create an RSE connection which has the shell services 
+     available.</li>
+</ul></div>
+
+<div class="p"><b>Remote Host</b>
+<ul>
+  <li>gdb debugger installed</li>
+</ul></div>
+
+<h2>Using</h2>
+<div class="p"><b> Run Application</b>
+<p>You need to build your application on remote host, then put the absolute path of the exe file in the settings.
+The debugger will run the exe file and debug it</p>
+</div>
+<div class="p"><b> Attach Application</b>
+<p>You can check the attach check box to attach into a running application.
+The debugger will show "Select Process" dialog while debugging the application.</p>
+</div>
+<div class="p"><b> Remote workspace directory</b>
+<p>If you have local and remote copies of the source code. You must specify in "Remote workspace directory" the folder in the remote directory which contains the  source files.
+This is the corresponding folder of the local source files.</p>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+<extension point="org.eclipse.debug.core.launchDelegates">	
+	 	<launchDelegate
+	        id="org.eclipse.rse.remote.direct.launch"
+	        type="org.eclipse.cdt.launch.remoteApplicationLaunchType"
+	        modes="debug"
+	        delegate="org.eclipse.cdt.launch.remote.direct.DirectRemoteDebugLaunchDelegate"
+	        name="%cdiLaunchDelgate.name"
+	        delegateDescription="%cdiLaunchDelgate.descritpion"
+	        sourceLocatorId="org.eclipse.cdt.debug.core.sourceLocator"
+	        sourcePathComputerId="org.eclipse.cdt.debug.core.sourcePathComputer">
+		</launchDelegate>
+	</extension>
+	
+	<extension point="org.eclipse.debug.ui.launchConfigurationTabs">
+		<tab
+	    	id="org.eclipse.rse.remtoe.direct.DirectRemoteCMainTab"
+	    	group="org.eclipse.cdt.launch.remoteApplicationLaunchTabGroup"
+	    	name="Main"
+	    	class="org.eclipse.cdt.launch.remote.direct.DirectRemoteCMainTab">
+			<associatedDelegate delegate="org.eclipse.rse.remote.direct.launch"/>
+		</tab>
+		<tab
+	    	id="org.eclipse.rse.remote.direct.DirectRemoteCArgumentsTab"
+	    	group="org.eclipse.cdt.launch.remoteApplicationLaunchTabGroup"
+	    	name="Arguments"
+	    	class="org.eclipse.cdt.launch.remote.direct.DirectRemoteCArgumentsTab">
+			<associatedDelegate delegate="org.eclipse.rse.remote.direct.launch"/>
+			<placement after="org.eclipse.cdt.launch.remote.dsf.mainTab"/>                        
+		</tab>
+		<tab
+	        id="org.eclipse.rse.remote.direct.DirectRemoteCDebuggerTab"
+	        group="org.eclipse.cdt.launch.remoteApplicationLaunchTabGroup"
+	        name="Debugger"
+	        class="org.eclipse.cdt.dsf.gdb.internal.ui.launching.LocalApplicationCDebuggerTab">
+	    	<associatedDelegate delegate="org.eclipse.rse.remote.direct.launch"/>
+	   	 	<placement after="org.eclipse.cdt.dsf.gdb.launch.argumentsTab"/>        
+		</tab>           
+		<tab
+	        id="org.eclipse.rse.remote.direct.DirectRemoteSourceLookupTab"
+	        group="org.eclipse.cdt.launch.remoteApplicationLaunchTabGroup"
+	        name="Source"
+	        class="org.eclipse.debug.ui.sourcelookup.SourceLookupTab">
+	    	<associatedDelegate delegate="org.eclipse.rse.remote.direct.launch"/>
+	    	<placement after="org.eclipse.rse.remotecdt.dsf.debug.RemoteCDSFDebuggerTab"/>        
+		</tab>                   
+	   <tab
+	   		id="org.eclipse.rse.remote.direct.DirectRemoteCommonTab"
+	    	group="org.eclipse.cdt.launch.remoteApplicationLaunchTabGroup"
+	    	name="Common"
+	    	class="org.eclipse.debug.ui.CommonTab">
+			<associatedDelegate delegate="org.eclipse.rse.remote.direct.launch"/>
+			<placement after="org.eclipse.debug.ui.sourceLookupTab"/>                
+	   </tab>
+	</extension>      		
+
+	<!-- ============================================ -->
+	<!-- Define Help Context                          -->
+	<!-- ============================================ -->
+	<extension point="org.eclipse.help.contexts">
+  		<contexts file="HelpContexts.xml"/>
+	</extension>
+	<extension point="org.eclipse.help.toc">
+		<toc file="toc.xml"/>
+	</extension>
+
+</plugin>
