@@ -1,0 +1,12 @@
+Creating rep for first time
+1- git clone https://github.com/mabdelazim/DirectRemoteDebug.git
+2- Change url to include username by command "git remote set-url origin https://mabdelazim@github.com/mabdelazim/DirectRemoteDebug.git"
+3- Each time you run command push , a dialog will appear for asking for password (Display must have be set correctly)  
+
+
+Updating steps:
+1- Sent RemotDebugUpdateSite to remote server
+2- Remove RemotDebugUpdateSite from local repp -- current in  /dsm/cicd_scratch1/moabdela/DirectGdb/repo/DirectRemoteDebug folder
+3- Mv uploaded RemotDebugUpdateSite in local repo
+4- Run in rep folder (currently in /dsm/cicd_scratch1/moabdela/DirectGdb/repo/DirectRemoteDebug), the command "git commit" 
+4- run command  "git push origin master"
