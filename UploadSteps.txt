@@ -1,0 +1,11 @@
+-- To put data on master (This for only saving)
+	1- git clone https://github.com/mabdelazim/DirectRemoteDebug.git
+	2- git add new_folder // if ther is any new folder
+	3- git commit -m "Chnages messages"
+	4- "git push origin master"
+  		-- username: mabdelazim
+  		-- password: math654321
+-- To put data on gh-pages (THis is important to appear on markert place url
+   the gh-pages is what appear in "http://mabdelazim.github.io"
+   to do that , repeat all the above step but instad clone with statement
+   git  clone -b gh-pages https://github.com/mabdelazim/DirectRemoteDebug.git
