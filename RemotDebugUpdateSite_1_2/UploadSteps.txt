@@ -1,12 +1,11 @@
-Creating rep for first time
-1- git clone https://github.com/mabdelazim/DirectRemoteDebug.git
-2- Change url to include username by command "git remote set-url origin https://mabdelazim@github.com/mabdelazim/DirectRemoteDebug.git"
-3- Each time you run command push , a dialog will appear for asking for password (Display must have be set correctly)  
-
-
-Updating steps:
-1- Sent RemotDebugUpdateSite to remote server
-2- Remove RemotDebugUpdateSite from local repp -- current in  /dsm/cicd_scratch1/moabdela/DirectGdb/repo/DirectRemoteDebug folder
-3- Mv uploaded RemotDebugUpdateSite in local repo
-4- Run in rep folder (currently in /dsm/cicd_scratch1/moabdela/DirectGdb/repo/DirectRemoteDebug), the command "git commit" 
-4- run command  "git push origin master"
+-- To put data on master (This for only saving)
+	1- git clone https://github.com/mabdelazim/DirectRemoteDebug.git
+	2- git add new_folder // if ther is any new folder
+	3- git commit -m "Chnages messages"
+	4- "git push origin master"
+  		-- username: mabdelazim
+  		-- password: math654321
+-- To put data on gh-pages (THis is important to appear on markert place url
+   the gh-pages is what appear in "http://mabdelazim.github.io"
+   to do that , repeat all the above step but instad clone with statement
+   git  clone -b gh-pages https://github.com/mabdelazim/DirectRemoteDebug.git
