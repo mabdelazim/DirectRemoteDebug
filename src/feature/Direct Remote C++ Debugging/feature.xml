@@ -26,7 +26,7 @@ GNU General Public License for more details.
    </license>
 
    <requires>
-      <import feature="org.eclipse.rse" version="3.7.0.201505221634"/>
+      <import feature="org.eclipse.rse" version="0.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
