@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.eclipse.cdt.launch.remote.direct_1.2.0.201808181801.jar" id="org.eclipse.cdt.launch.remote.direct" version="1.2.0.201808181801"/>
+   <feature url="features/org.eclipse.cdt.launch.remote.direct_1.2.0.201808271255.jar" id="org.eclipse.cdt.launch.remote.direct" version="1.2.0.201808271255"/>
 </site>

@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
 Bundle-SymbolicName: org.eclipse.cdt.launch.remote.direct;singleton:=true
-Bundle-Version: 1.0.0.qualifier
+Bundle-Version: 1.2.0.qualifier
 Bundle-Activator: org.eclipse.cdt.launch.remote.direct.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
@@ -15,7 +15,6 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.rse.services,
  org.eclipse.cdt.launch;bundle-version="7.2.0",
  org.eclipse.cdt.dsf.gdb,
- org.eclipse.cdt.debug.mi.core,
  org.eclipse.cdt.dsf.gdb.ui;bundle-version="2.4.0",
  org.eclipse.rse.files.ui,
  org.eclipse.rse.subsystems.files.core,

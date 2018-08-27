@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.eclipse.cdt.launch.remote.direct"
+      label="Direct Remote C++ Debugging"
+      version="1.2.0.qualifier"
+      provider-name="mabdelazim@gmail.com">
+
+   <description>
+      Remote debug C++ applications using a gdb running in the server over ssh. No need for gdbserver to be running on the server. Local and remote platform can be different (Windows/Linux)
+   </description>
+
+   <copyright>
+      mabdelazim@gmail.com
+   </copyright>
+
+   <license url="http://www.gnu.org/licenses/gpl-3.0.en.html">
+      This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+   </license>
+
+   <requires>
+      <import feature="org.eclipse.rse" version="3.7.0.201505221634"/>
+   </requires>
+
+   <plugin
+         id="org.eclipse.cdt.launch.remote.direct"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

@@ -44,6 +44,22 @@ public class DirectRemoteDebugLaunchDelegate extends GdbLaunchDelegate {
 		super();
 	}
 	
+	@Override
+	protected GdbLaunch createGdbLaunch(ILaunchConfiguration configuration, String mode, ISourceLocator locator)
+			throws CoreException {
+		// TODO Auto-generated method stub
+		return new  GdbLaunch(configuration, mode, locator)
+				{
+
+					@Override
+					public String getGDBVersion() throws CoreException {
+						// TODO Auto-generated method stub
+						return version;
+					}
+			
+				};
+	}
+
 	protected IHostShell getShell() {
 		return remoteShell;
 	}
@@ -54,7 +70,7 @@ public class DirectRemoteDebugLaunchDelegate extends GdbLaunchDelegate {
 	
     @Override
 	protected IDsfDebugServicesFactory newServiceFactory(ILaunchConfiguration config, String version) {
-    	return new DirectRemoteServicesFactory(version, this);
+    	return new DirectRemoteServicesFactory(version, this, config);
     }
     
     @Override
@@ -101,7 +117,7 @@ public class DirectRemoteDebugLaunchDelegate extends GdbLaunchDelegate {
 					
 					for (IHostOutput line : event.getLines()) {
 						String lineString = line.getString();
-						if(lineString.contains("GNU gdb (GDB")) { //$NON-NLS-1$
+						if(lineString.contains("GNU gdb")) { //$NON-NLS-1$
 							version = LaunchUtils.getGDBVersionFromText(line.getString());
 						}
 						if (lineString.contains("This GDB was configured as")) { //$NON-NLS-1$
@@ -197,13 +213,14 @@ public class DirectRemoteDebugLaunchDelegate extends GdbLaunchDelegate {
 	    	ISourceContainer newConstrainters[] = new ISourceContainer[containers.length +1 ];
 		    System.arraycopy(containers, 0, newConstrainters, 0, containers.length);
 		    MappingSourceContainer mapContainer = new MappingSourceContainer(DIRECT_REMOTE_DEBUG_MAPPING);
+		    mapContainer.setIsMappingWithBackendEnabled(false);
 			ICProject cp = LaunchUtils.getCProject(configuration);
 			String remoteWorkSpaceLocation = configuration.getAttribute(IDirectRemoteConnectionConfigurationConstants.ATTR_REMOTE_WORKSPACE, ""); //$NON-NLS-1$
 	        
 			if (cp != null && remoteWorkSpaceLocation.length() > 0) {
 				IProject p = cp.getProject();
 	        
-		    MapEntrySourceContainer entry = new MapEntrySourceContainer(Path.fromOSString(remoteWorkSpaceLocation), p.getLocation());
+		    MapEntrySourceContainer entry = new MapEntrySourceContainer(remoteWorkSpaceLocation, p.getLocation());
 		    mapContainer.addMapEntry(entry);
 		    newConstrainters[containers.length] = mapContainer;
 		    sl.setSourceContainers(newConstrainters);

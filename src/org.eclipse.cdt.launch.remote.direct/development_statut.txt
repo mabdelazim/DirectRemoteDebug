@@ -1,0 +1,6 @@
+This workspace (C:\Users\moabdela\workspace_neon) the correct development one.
+We have all projects here (plugin - feature, site)
+You can debug ICT files here, for browsing ICT files , you need to download it's source code (search for online steps for that).
+No need now for downloading the source code
+The current main test project is based on CICD scratch here, you will need to create anther one based on calibre on next development cycle.
+The Current known issues are the ones in git hug plus people you can't run it on Windows 10 for some reasone.

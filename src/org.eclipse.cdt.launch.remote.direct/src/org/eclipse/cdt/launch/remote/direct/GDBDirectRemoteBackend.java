@@ -19,7 +19,7 @@ public class GDBDirectRemoteBackend extends GDBBackend {
 		fLaunchConfiguration = lc;
 	}
 
-	@Override
+
 	protected Process launchGDBProcess(String commandLine) throws CoreException {
 		
 		delegate.getShell().writeToShell(commandLine);
