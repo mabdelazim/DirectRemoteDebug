@@ -11,7 +11,6 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.osgi.util.NLS;
 import org.eclipse.rse.core.RSECorePlugin;
@@ -34,6 +33,8 @@ public class RSEHelper {
 	 * @param code
 	 *            error code
 	 */
+	
+	
 	public static void abort(String message, Throwable exception, int code) throws CoreException {
 		IStatus status;
 		if (exception != null) {
@@ -145,7 +146,7 @@ public class RSEHelper {
 
 		IShellService shellService = null;
 		shellService = (IShellService) getConnectedRemoteShellService(getCurrentConnection(config),
-						new SubProgressMonitor(monitor, 7));
+				EclipseCompat.getSubMonitor(monitor, 7));
 
 		// This is necessary because runCommand does not actually run the
 		// command right now.
@@ -153,7 +154,7 @@ public class RSEHelper {
 		IHostShell hostShell = null;
 		if (shellService != null) {
 			hostShell = shellService.launchShell(
-					"", env, new SubProgressMonitor(monitor, 3)); //$NON-NLS-1$
+					"", env, EclipseCompat.getSubMonitor(monitor, 3)); //$NON-NLS-1$
 			hostShell.writeToShell(remoteCommand);
 			
 		}
