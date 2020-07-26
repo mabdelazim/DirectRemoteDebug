@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?>
+<target name="cdt-rse-2018-12" sequenceNumber="79">
+<targetJRE path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+<launcherArgs>
+<vmArgs>-Xms40m&#13;
+-Xmx512M&#13;
+-ea</vmArgs>
+<programArgs>-consolelog</programArgs>
+</launcherArgs>
+	<locations>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+			<repository location="http://download.eclipse.org/eclipse/updates/4.10"/>
+			<unit id="org.eclipse.platform.ide" version="4.10.0.I20181206-0815"/>
+			<unit id="org.eclipse.platform.sdk" version="4.10.0.I20181206-0815"/>
+			<unit id="org.eclipse.sdk.ide" version="4.10.0.I20181206-0815"/>
+		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+			<repository location="http://download.eclipse.org/releases/2018-12"/>
+			<unit id="org.eclipse.rse.feature.group" version="4.5.1.201811011802"/>
+		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+			<repository location="http://download.eclipse.org/tools/cdt/releases/9.6"/>
+			<unit id="org.eclipse.cdt.arduino.feature.group" version="9.6.0.201812111211"/>
+			<unit id="org.eclipse.cdt.arduino.source.feature.group" version="9.6.0.201812111211"/>
+			<unit id="org.eclipse.cdt.autotools.feature.group" version="9.6.0.201812111211"/>
+			<unit id="org.eclipse.cdt.autotools.source.feature.group" version="9.6.0.201812111211"/>
+			<unit id="org.eclipse.cdt.build.crossgcc.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.build.crossgcc.source.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.bupc.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.bupc.source.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.cmake.feature.group" version="9.6.0.201812111211"/>
+			<unit id="org.eclipse.cdt.cmake.source.feature.group" version="9.6.0.201812111211"/>
+			<unit id="org.eclipse.cdt.core.autotools.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.core.autotools.source.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.core.lrparser.feature.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.core.lrparser.feature.source.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.core.lrparser.sdk.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.core.parser.upc.feature.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.core.parser.upc.feature.source.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.core.parser.upc.sdk.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.debug.gdbjtag.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.debug.gdbjtag.source.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.debug.standalone.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.debug.standalone.source.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.debug.ui.memory.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.debug.ui.memory.source.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.docker.launcher.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.docker.launcher.source.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.examples.dsf.feature.group" version="9.6.0.201811241122"/>
+			<unit id="org.eclipse.cdt.examples.dsf.source.feature.group" version="9.6.0.201811241122"/>
+			<unit id="org.eclipse.cdt.feature.group" version="9.6.0.201812111211"/>
+			<unit id="org.eclipse.cdt.gnu.multicorevisualizer.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.gnu.multicorevisualizer.source.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.launch.remote.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.launch.remote.source.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.launch.serial.feature.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.launch.serial.feature.source.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.llvm.dsf.lldb.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.llvm.dsf.lldb.source.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.managedbuilder.llvm.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.managedbuilder.llvm.source.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.meson.feature.group" version="9.6.0.201812111211"/>
+			<unit id="org.eclipse.cdt.meson.source.feature.group" version="9.6.0.201812111211"/>
+			<unit id="org.eclipse.cdt.msw.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.msw.source.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.qt.feature.group" version="9.6.0.201812111211"/>
+			<unit id="org.eclipse.cdt.qt.source.feature.group" version="9.6.0.201812111211"/>
+			<unit id="org.eclipse.cdt.sdk.feature.group" version="9.6.0.201812111211"/>
+			<unit id="org.eclipse.cdt.testsrunner.feature.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.testsrunner.feature.source.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.visualizer.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.visualizer.source.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.xlc.feature.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.xlc.feature.source.feature.group" version="9.6.0.201811241055"/>
+			<unit id="org.eclipse.cdt.xlc.sdk.feature.group" version="9.6.0.201811241055"/>
+		</location>
+	</locations>
+</target>

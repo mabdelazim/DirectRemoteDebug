@@ -1,5 +1,9 @@
 package org.eclipse.cdt.launch.remote.direct;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.concurrent.RejectedExecutionException;
 
 import org.eclipse.cdt.core.model.ICProject;
@@ -21,7 +25,6 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.core.runtime.SubProgressMonitor;
 import org.eclipse.debug.core.ILaunch;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.model.ISourceLocator;
@@ -94,7 +97,7 @@ public class DirectRemoteDebugLaunchDelegate extends GdbLaunchDelegate {
 		final GdbLaunch l = (GdbLaunch)launch;
 		try {
 			remoteShell = RSEHelper.execCmdInRemoteShell(config, prelaunchCmd, gdbCommmand.toOSString(), "-version",  //$NON-NLS-1$
-					new SubProgressMonitor(monitor, 5));
+					EclipseCompat.getSubMonitor(monitor, 5));
 		} catch(Exception el) {
 			RSEHelper.abort(el.getMessage(), el, ICDTLaunchConfigurationConstants.ERR_INTERNAL_ERROR);
 		}
@@ -107,6 +110,7 @@ public class DirectRemoteDebugLaunchDelegate extends GdbLaunchDelegate {
 		gdbReady[0] = false;
 		final Object lock = new Object();
 		if (remoteShell != null) {
+			/*
 			remoteShell.addOutputListener(new IHostShellOutputListener() {
 				boolean working = true;
 				@Override
@@ -131,6 +135,7 @@ public class DirectRemoteDebugLaunchDelegate extends GdbLaunchDelegate {
 					}
 				}
 			});
+			*/
 			try {
 				remoteProcess = new HostShellProcessAdapter(remoteShell);
 			}
@@ -138,6 +143,7 @@ public class DirectRemoteDebugLaunchDelegate extends GdbLaunchDelegate {
 				RSEHelper.abort(Messages.DirectRemoteDebugLaunchDelegate_5, e, ICDTLaunchConfigurationConstants.ERR_INTERNAL_ERROR);
 			}
 			synchronized(lock) {
+				BufferedReader br = new BufferedReader(new InputStreamReader(remoteProcess.getInputStream()));
 				while (gdbReady[0] == false) {
 					if (monitor.isCanceled() || !remoteShell.isActive()) {
 						if (remoteProcess != null) {
@@ -164,7 +170,21 @@ public class DirectRemoteDebugLaunchDelegate extends GdbLaunchDelegate {
 				}
 				catch(InterruptedException e) {
 					
-				}	
+				}
+				try {
+					String lineString = br.readLine();
+					if(lineString.contains("GNU gdb")) { //$NON-NLS-1$
+						String versionString = br.readLine();
+						version = LaunchUtils.getGDBVersionFromText(versionString);
+					}
+					if (lineString.contains("This GDB was configured as")) { //$NON-NLS-1$
+						gdbReady[0] = true;
+					}
+				} catch (IOException e) {
+
+				}
+
+				
 			}
 		 }
 		}
